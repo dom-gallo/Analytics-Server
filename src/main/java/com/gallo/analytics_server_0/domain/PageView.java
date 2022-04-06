@@ -3,35 +3,36 @@ package com.gallo.analytics_server_0.domain;
 import org.springframework.data.domain.Page;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 public class PageView {
-    LocalDate date;
-    Domain domain;
+    LocalDateTime date;
+    Long domainId;
     String url;
 
     public PageView() {
     }
 
-    public PageView(LocalDate date, Domain domain, String url) {
+    public PageView(LocalDateTime date, Long domainId, String url) {
         this.date = date;
-        this.domain = domain;
+        this.domainId = domainId;
         this.url = url;
     }
 
-    public LocalDate getDate() {
+    public LocalDateTime getDate() {
         return date;
     }
 
-    public void setDate(LocalDate date) {
+    public void setDate(LocalDateTime date) {
         this.date = date;
     }
 
-    public Domain getDomain() {
-        return domain;
+    public Long getDomainId() {
+        return domainId;
     }
 
-    public void setDomain(Domain domain) {
-        this.domain = domain;
+    public void setDomainId(Long domainId) {
+        this.domainId = domainId;
     }
 
     public String getUrl() {
@@ -46,7 +47,7 @@ public class PageView {
     public String toString() {
         return "PageView{" +
                 "date=" + date +
-                ", domain=" + domain +
+                ", domainId=" + domainId +
                 ", url='" + url + '\'' +
                 '}';
     }

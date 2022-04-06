@@ -5,20 +5,25 @@ import com.gallo.analytics_server_0.user.User;
 import java.util.ArrayList;
 
 public class Domain {
+    Long id;
     String domainURL;
-    User accountOwner;
+    Long accountOwnerId;
     ArrayList<PageView> pageViews;
 
     public Domain(){}
 
-    public Domain(String domainURL, User accountOwner) {
+    public Domain(String domainURL) {
         this.domainURL = domainURL;
-        this.accountOwner = accountOwner;
+    }
+    public Domain(String domainURL, Long accountOwnerId) {
+        this.domainURL = domainURL;
+        this.accountOwnerId = accountOwnerId;
     }
 
-    public Domain(String domainURL, User accountOwner, ArrayList<PageView> pageViews) {
+
+    public Domain(String domainURL, Long accountOwnerId, ArrayList<PageView> pageViews) {
         this.domainURL = domainURL;
-        this.accountOwner = accountOwner;
+        this.accountOwnerId = accountOwnerId;
         this.pageViews = pageViews;
     }
 
@@ -30,12 +35,12 @@ public class Domain {
         this.domainURL = domainURL;
     }
 
-    public User getAccountOwner() {
-        return accountOwner;
+    public Long getAccountOwnerId() {
+        return accountOwnerId;
     }
 
     public void setAccountOwner(User accountOwner) {
-        this.accountOwner = accountOwner;
+        this.accountOwnerId = accountOwnerId;
     }
 
     public ArrayList<PageView> getPageViews() {
@@ -46,11 +51,23 @@ public class Domain {
         this.pageViews = pageViews;
     }
 
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public void setAccountOwnerId(Long accountOwnerId) {
+        this.accountOwnerId = accountOwnerId;
+    }
+
     @Override
     public String toString() {
         return "Domain{" +
                 "domainURL='" + domainURL + '\'' +
-                ", accountOwner=" + accountOwner +
+                ", accountOwner=" + accountOwnerId +
                 ", pageViews=" + pageViews +
                 '}';
     }
