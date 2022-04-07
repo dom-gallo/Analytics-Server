@@ -10,6 +10,7 @@ import org.springframework.data.domain.Page;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.List;
 
 @Configuration
 public class UserConfig {
@@ -18,8 +19,9 @@ public class UserConfig {
     CommandLineRunner commandLineRunner(UserRepository repository){
         return args -> {
             User user = new User("dgallo519@gmail.com", "passwordhash");
+            List<PageView> views = new ArrayList<>();
 
-            Domain domain = new Domain("getforgetmenot.com", new ArrayList<PageView>());
+            Domain domain = new Domain("getforgetmenot.com", views);
             PageView view = new PageView(LocalDateTime.now(), "/home");
             domain.getPageViews().add(view);
             user.setDomain(domain);

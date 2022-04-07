@@ -7,7 +7,7 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name = "DOMAIN")
+@Table
 public class Domain {
     @Id
     Long id;
