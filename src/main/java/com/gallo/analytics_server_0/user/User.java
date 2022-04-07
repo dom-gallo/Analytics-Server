@@ -2,11 +2,26 @@ package com.gallo.analytics_server_0.user;
 
 import com.gallo.analytics_server_0.domain.Domain;
 
+import javax.persistence.*;
 import java.util.ArrayList;
 
+@Entity
+@Table(name = "USER")
 public class User {
+    @Id
+    @SequenceGenerator(
+            name="user_sequence",
+            sequenceName = "user_sequence",
+            allocationSize = 1
+    )
+    @GeneratedValue(
+            strategy = GenerationType.SEQUENCE,
+            generator = "user_sequence"
+    )
     Long id;
     String emailAddress;
+
+    @OneToOne
     Domain domain;
     String password;
 

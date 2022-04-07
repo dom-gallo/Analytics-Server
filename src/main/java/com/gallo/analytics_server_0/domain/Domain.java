@@ -1,14 +1,21 @@
 package com.gallo.analytics_server_0.domain;
 
 import com.gallo.analytics_server_0.user.User;
+import org.springframework.data.domain.Page;
 
-import java.util.ArrayList;
+import javax.persistence.*;
+import java.util.List;
 
+@Entity
+@Table(name = "DOMAIN")
 public class Domain {
+    @Id
     Long id;
     String domainURL;
     Long accountOwnerId;
-    ArrayList<PageView> pageViews;
+
+    @OneToMany
+    List<PageView> pageViews;
 
     public Domain(){}
 
@@ -19,9 +26,11 @@ public class Domain {
         this.domainURL = domainURL;
         this.accountOwnerId = accountOwnerId;
     }
-
-
-    public Domain(String domainURL, Long accountOwnerId, ArrayList<PageView> pageViews) {
+    public Domain(String domainURL, List<PageView> pageViews){
+        this.domainURL = domainURL;
+        this.pageViews = pageViews;
+    }
+    public Domain(String domainURL, Long accountOwnerId, List<PageView> pageViews) {
         this.domainURL = domainURL;
         this.accountOwnerId = accountOwnerId;
         this.pageViews = pageViews;
@@ -43,11 +52,11 @@ public class Domain {
         this.accountOwnerId = accountOwnerId;
     }
 
-    public ArrayList<PageView> getPageViews() {
+    public List<PageView> getPageViews() {
         return pageViews;
     }
 
-    public void setPageViews(ArrayList<PageView> pageViews) {
+    public void setPageViews(List<PageView> pageViews) {
         this.pageViews = pageViews;
     }
 
